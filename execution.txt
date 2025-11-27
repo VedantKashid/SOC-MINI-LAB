@@ -1,0 +1,55 @@
+sudo systemctl start wazuh-agent
+
+sudo systemctl stop wazuh-agent
+
+sudo systemctl restart wazuh-agent
+
+sudo systemctl status wazuh-agent
+
+
+sudo nano /var/ossec/etc/ossec.conf
+
+
+
+✅ 1. File Integrity Monitoring (FIM)
+
+create a suspicious file:
+
+sudo touch /etc/secret.txt
+
+✅ 2. Detecting Network Intrusion using Suricata IDS
+
+sudo systemctl start suricata
+
+sudo systemctl stop suricata
+
+sudo systemctl restart suricata
+
+sudo systemctl status suricata
+
+
+curl -A "Azureus 2.0.7.0" http://test-server.com/
+
+
+
+✅ 3. Detecting Vulnerabilities (Wazuh Vulnerability Detector)
+
+
+sudo systemctl restart wazuh-agent
+
+✅ 4. Detecting Execution of Malicious Commands   
+
+nc -z localhost 22
+
+
+🚫 5. SSH Bruteforce Attacks
+
+sudo systemctl start ssh
+
+
+ssh baduser@192.168.193.128
+
+
+
+
+

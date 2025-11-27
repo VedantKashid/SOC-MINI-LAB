@@ -1,150 +1,58 @@
-# SOC-MINI-LAB
-🚨 Wazuh SOC Lab — Complete Detection & Monitoring Project
+# Wazuh containers for Docker
 
-A fully functional Security Operations Center (SOC) lab built using Wazuh, Docker, Kali Linux, and Suricata.
-This project demonstrates real-world security monitoring, threat detection, vulnerability analysis, and incident response.
+[![Slack](https://img.shields.io/badge/slack-join-blue.svg)](https://wazuh.com/community/join-us-on-slack/)
+[![Email](https://img.shields.io/badge/email-join-blue.svg)](https://groups.google.com/forum/#!forum/wazuh)
 
-🔥 Why I Built This Project
+## Description
 
-Modern security teams depend on SOC platforms to detect threats early.
-This project simulates a real enterprise SOC by:
+The `wazuh/wazuh-docker` repository provides resources to deploy the Wazuh cybersecurity platform using Docker containers. This setup enables easy installation and orchestration of the full Wazuh stack, including the Wazuh server, dashboard (based on OpenSearch Dashboards), and OpenSearch for indexing and search.
 
-Monitoring system logs
+## Capabilities
 
-Detecting SSH brute-force attacks
+- Full deployment of the Wazuh stack using Docker.
+- `docker compose` support for orchestration.
+- Scalable architecture with multi-node support.
+- Data persistence through configurable volumes.
+- Ready-to-use configurations for production or testing environments.
 
-Detecting suspicious command execution
+## Branch Convention
 
-Detecting unauthorized file changes
+- `main`: Developing and testing of new features.
+- `X.Y.Z`: Version-specific branches (e.g., `4.14.0`, `4.13.0`, etc.).
 
-Detecting network intrusions with Suricata
+## Documentation
 
-Finding vulnerabilities on endpoints
+Official documentation is available at:
 
-This lab is perfect for learning blue team skills, threat detection, and incident response.
+[https://documentation.wazuh.com/current/deployment-options/docker/index.html](https://documentation.wazuh.com/current/deployment-options/docker/index.html)
 
-🏗 Project Architecture
-🔹 Wazuh Manager
+You can also explore internal documentation in the [`docs`](https://github.com/wazuh/wazuh-docker/tree/main/docs) folder of this repository.
 
-Processes logs, applies rules, generates alerts.
+## Get Involved
 
-🔹 Wazuh Indexer
+- **Fork the repository** and create your own branches to add features or fix bugs.
+- **Open issues** to report bugs or request features.
+- **Submit pull requests** following the contributing guidelines.
+- Participate in [discussions](https://github.com/wazuh/wazuh-docker/discussions) if available.
 
-Stores all alerts and events (OpenSearch-based).
+## Authors / Maintainers
 
-🔹 Wazuh Dashboard
+These Docker containers are based on:
 
-Web interface for monitoring and investigations.
+*  "deviantony" dockerfiles which can be found at [https://github.com/deviantony/docker-elk](https://github.com/deviantony/docker-elk)
+*  "xetus-oss" dockerfiles, which can be found at [https://github.com/xetus-oss/docker-ossec-server](https://github.com/xetus-oss/docker-ossec-server)
 
-🔹 Wazuh Agent (Kali Linux)
+This project is maintained by the [Wazuh](https://wazuh.com) team, with active contributions from the community.
 
-Collects logs, monitors system activities, sends events to Manager.
+See the full list of contributors at:
+[https://github.com/wazuh/wazuh-docker/graphs/contributors](https://github.com/wazuh/wazuh-docker/graphs/contributors)
 
-🔹 Suricata IDS
+We thank them and everyone else who has contributed to this project.
 
-Detects network intrusion attempts.
+## License and copyright
 
-📌 Architecture Diagram
-<img width="2090" height="1517" alt="image" src="https://github.com/user-attachments/assets/d030b4a1-f673-4503-b45c-5e7407946aaa" />
+Wazuh Docker Copyright (C) 2017, Wazuh Inc. (License GPLv2)
 
+## Web references
 
-📡 Data Flow
-
-Kali → Wazuh Agent collects logs
-
-Logs → Wazuh Manager for rule-based detection
-
-Alerts → Wazuh Indexer for storing
-
-Visualized → Wazuh Dashboard
-
-📌 Data Flow Diagram
-<img width="2040" height="623" alt="image" src="https://github.com/user-attachments/assets/971fa128-92f1-416e-9e89-f88607f278b4" />
-
-
-🧪 What This Project Detects
-✔ File Integrity Monitoring (FIM)
-
-Detects unauthorized file changes.
-
-✔ SSH Brute-Force Detection
-
-Failed login attempts, invalid users, brute force patterns.
-
-✔ Vulnerability Detection
-
-Real-time CVE scanning using Wazuh Vulnerability Detector.
-
-✔ Suspicious/Malicious Command Execution
-
-Detect commands like:
-
-curl -A "Azureus 2.0.7" malicious.link
-
-✔ Network Intrusion Detection (Suricata)
-
-Detects:
-
-Port scanning
-
-HTTP attacks
-
-Malware signatures
-
-🚀 Setup Instructions
-1. Clone this repository
-git clone https://github.com/<your-username>/wazuh-soc-lab.git
-
-2. Deploy Wazuh Using Docker
-docker-compose up -d
-
-3. Install Wazuh Agent on Kali
-sudo apt install wazuh-agent
-
-4. Configure Agent to Connect to Windows Manager
-sudo nano /var/ossec/etc/ossec.conf
-
-
-Add:
-
-<server>
-  <address>YOUR_WINDOWS_IP</address>
-</server>
-
-🧪 Attack Simulation Scripts
-🔹 SSH Brute Force
-ssh baduser@<kali-ip>
-
-🔹 Malicious Command
-curl -A "Azureus 2.0.7.0" http://test.com
-
-🔹 FIM Test
-echo "hacked!" >> /etc/passwd
-
-🖼 Dashboard Alerts
-
-<img width="2028" height="1261" alt="image" src="https://github.com/user-attachments/assets/0605cd00-1534-4aca-97a8-04c00094f384" />
-
-
-
-🎯 Skills Demonstrated
-
-SIEM
-
-Threat Detection
-
-Log Analysis
-
-SOC Monitoring
-
-Vulnerability Assessment
-
-Linux Monitoring
-
-IDS/IPS
-
-Docker
-
-📬 Contact
-
-If you want help deploying a SOC environment or want to collaborate, feel free to connect!
+[Wazuh website](http://wazuh.com)
